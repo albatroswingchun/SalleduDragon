@@ -61,128 +61,128 @@
        }
 
 
-    .courint, .extmont {
-  position: absolute;
-  width: 0;
-  height: 0;
-  background: none;
-  border: none;
-  outline: none;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  z-index: 10;
-  -webkit-tap-highlight-color: transparent;
-}
+     .courint, .extmont {
+         position: absolute;
+         width: 0;
+         height: 0;
+         background: none;
+         border: none;
+         outline: none;
+         padding: 0;
+         margin: 0;
+         cursor: pointer;
+         z-index: 10;
+         -webkit-tap-highlight-color: transparent;
+       }
 
-.courint {
-  top: 50%;
-  left: 8%;
-  transform: translateY(-50%);
-}
+     .courint {
+         top: 50%;
+         left: 8%;
+         transform: translateY(-50%);
+       }
 
-.extmont {
-  top: 50%;
-  left: 92%;
-  transform: translateY(-50%);
-}
+     .extmont {
+         top: 50%;
+         left: 92%;
+         transform: translateY(-50%);
+       }
 
-/* Flèches visibles et pulsantes */
-.courint::before,
-.extmont::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
-  border-top: 50px solid transparent;
-  border-bottom: 50px solid transparent;
-  animation: pulseYellow 2s infinite ease-in-out;
-  pointer-events: none;
-}
-
-.courint::before {
-  border-right: 80px solid rgba(255, 255, 0, 0.5);
-}
-
-.extmont::before {
-  border-left: 80px solid rgba(255, 255, 0, 0.5);
-}
-
-.courint:hover::before {
-  border-right-color: rgba(255, 255, 0, 1);
-}
-
-.extmont:hover::before {
-  border-left-color: rgba(255, 255, 0, 1);
-}
-
-@keyframes pulseYellow {
-  0%, 100% {
-    filter: drop-shadow(0 0 4px rgba(255, 255, 0, 0.3));
-  }
-  50% {
-    filter: drop-shadow(0 0 12px rgba(255, 255, 0, 0.8));
-  }
-}
-
-        .dragonfinal {
-          top: 65%;
-          left: 44%;
-          width: 12%;
-          height: 9%;
-          z-index: 10;
-      }
-
-       .dragonfinal::before {
+       /* Flèches visibles et pulsantes */
+     .courint::before,
+     .extmont::before {
          content: "";
          position: absolute;
-         top: 50%;
-         left: 50%;
+         top: 0;
+         left: 0;
          transform: translate(-50%, -50%);
-         width: 80px;
-         height: 80px;
-         border-radius: 50%;
-         background: rgba(255, 255, 0, 0.4);
+         width: 0;
+         height: 0;
+         border-top: 50px solid transparent;
+         border-bottom: 50px solid transparent;
          animation: pulseYellow 2s infinite ease-in-out;
          pointer-events: none;
        }
 
-       .dragonfinal:hover::before {
-         background: rgba(255, 255, 0, 1);
+     .courint::before {
+         border-right: 80px solid rgba(255, 255, 0, 0.5);
        }
 
-      .porte4 {
-          top: 57.5%;
-          left: 73.5%;
-          width: 8.5%;
-          height: 16%;
-      }
+     .extmont::before {
+         border-left: 80px solid rgba(255, 255, 0, 0.5);
+       }
 
-      .porte5 {
-          top: 60%;
-          left: 84.5%;
-          width: 8%;
-          height: 14%;
-      }
+     .courint:hover::before {
+         border-right-color: rgba(255, 255, 0, 1);
+       }
 
-      .fixedBtn {
-          position: fixed;
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
-          overflow: hidden;
-          background: rgba(0, 0, 0, 0.6);
-          box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
-          border: 2px solid rgba(255, 255, 255, 0.6);
-          cursor: pointer;
-          animation: pulse 2.4s ease-in-out infinite;
-          z-index: 10;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+     .extmont:hover::before {
+         border-left-color: rgba(255, 255, 0, 1);
+       }
+
+     @keyframes pulseYellow {
+           0%, 100% {
+           filter: drop-shadow(0 0 4px rgba(255, 255, 0, 0.3));
+         }
+         50% {
+           filter: drop-shadow(0 0 12px rgba(255, 255, 0, 0.8));
+         }
+       }
+
+     .dragonfinal {
+         top: 65%;
+         left: 44%;
+         width: 12%;
+         height: 9%;
+         z-index: 10;
+     }
+
+     .dragonfinal::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: rgba(255, 255, 0, 0.4);
+        animation: pulseYellow 2s infinite ease-in-out;
+        pointer-events: none;
+     }
+
+     .dragonfinal:hover::before {
+        background: rgba(255, 255, 0, 1);
+     }
+    
+     .porte4 {
+        top: 57.5%;
+        left: 73.5%;
+        width: 8.5%;
+        height: 16%;
+     }
+
+     .porte5 {
+        top: 60%;
+        left: 84.5%;
+        width: 8%;
+        height: 14%;
+     }
+
+     .fixedBtn {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.6);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+        border: 2px solid rgba(255, 255, 255, 0.6);
+        cursor: pointer;
+        animation: pulse 2.4s ease-in-out infinite;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       #logoBtn {
