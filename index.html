@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Temple du Dragon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: url('https://i.imgur.com/4aha2sd.png') no-repeat center center;
+      background-size: cover;
+      z-index: -1;
+    }
+
+    #intro-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2147483647;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+
+    #intro-text {
+      color: white;
+      font-size: 2.2em;
+      font-family: Georgia, serif;
+      letter-spacing: 1px;
+      text-shadow: 0 0 15px white;
+      opacity: 0;
+      transition: opacity 3s ease;
+    }
+
+    #scrollTarget {
+      position: absolute;
+      top: 63vh;
+      left: 0;
+      width: 100%;
+      height: 1px;
+    }
+
+    .orientation-content span.yellow {
+      color: yellow;
+      font-weight: bold;
+    }
+
+    .container-portrait,
+    .container-landscape {
+      position: fixed;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      z-index: 9999;
+      font-family: sans-serif;
+      font-size: 1em;
+      color: white;
+    }
+
+    @media screen and (orientation: portrait) {
+      .container-portrait { display: block; }
+      .container-landscape { display: none; }
+    }
+
+    @media screen and (orientation: landscape) {
+      .container-portrait { display: none; }
+      .container-landscape { display: block; }
+    }
+
+    #fullscreenBtn {
+      padding: 0.5em 1em;
+      background: white;
+      color: black;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- INTRO -->
+  <div id="intro-wrapper">
+    <h1 id="intro-text">Bienvenue dans le Temple du Dragon</h1>
+  </div>
+
+  <!-- ORIENTATION PORTRAIT -->
+  <div class="container-portrait">
+    <div class="orientation-content">
+      <p>Pour une immersion optimale, passe en <span class="yellow">paysage</span> et clique sur <span class="yellow">Plein&nbsp;écran</span>.</p>
+    </div>
+  </div>
+
+  <!-- ORIENTATION PAYSAGE -->
+  <div class="container-landscape">
+    <div id="fullscreenBtn">Plein écran</div>
+  </div>
+
+  <!-- SCROLL TARGET -->
+  <div id="scrollTarget"></div>
+
+  <script>
+    // Affiche le texte après 0.5s
+    setTimeout(() => {
+      const text = document.getElementById('intro-text');
+      if (text) text.style.opacity = '1';
+    }, 500);
+
+    // Disparition de l’intro à 3s
+    setTimeout(() => {
+      const intro = document.getElementById('intro-wrapper');
+      if (intro) {
+        intro.style.opacity = '0';
+        setTimeout(() => {
+          intro.remove();
+          document.body.style.overflow = 'auto';
+
+          const target = document.getElementById('scrollTarget');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 1000);
+      }
+    }, 3000);
+
+    // Plein écran
+    document.getElementById('fullscreenBtn').addEventListener('click', () => {
+      const docElm = document.documentElement;
+      if (docElm.requestFullscreen) docElm.requestFullscreen();
+      else if (docElm.mozRequestFullScreen) docElm.mozRequestFullScreen();
+      else if (docElm.webkitRequestFullscreen) docElm.webkitRequestFullscreen();
+      else if (docElm.msRequestFullscreen) docElm.msRequestFullscreen();
+    });
+  </script>
+</body>
+</html>
