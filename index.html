@@ -453,6 +453,17 @@
     </div>
   </div>
 
+<!-- Popup Code Secret -->
+<div id="codePopup" class="popupOverlay">
+  <div class="popupContent" style="flex-direction: column; background: #111; padding: 30px; border-radius: 12px;">
+    <span class="closePopup" onclick="document.getElementById('codePopup').style.display='none'; document.body.classList.remove('modal-open');">&times;</span>
+    <h2 style="color: white; margin-bottom: 10px;">Entre le code secret</h2>
+    <input id="secretInput" type="text" placeholder="Code..." style="padding: 10px; font-size: 16px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 10px;">
+    <button onclick="checkSecretCode()" style="padding: 10px 20px; font-size: 16px; background: gold; color: black; border: none; border-radius: 6px; cursor: pointer;">Valider</button>
+    <p id="codeError" style="color: red; display: none; margin-top: 10px;">Code incorrect.</p>
+  </div>
+</div>
+  
   <script>
     function initPopup(buttonId, popupId, images) {
       const btn = document.getElementById(buttonId);
@@ -570,6 +581,31 @@
       notePopup.style.display = 'flex';
       document.body.classList.add('modal-open');
     });
+
+    // Ouverture de la popup du Dragon
+document.querySelector('.dragonfinal').addEventListener('click', () => {
+  document.getElementById('codePopup').style.display = 'flex';
+  document.body.classList.add('modal-open');
+  document.getElementById('secretInput').value = "";
+  document.getElementById('codeError').style.display = "none";
+});
+
+// Vérification du code secret
+function checkSecretCode() {
+  const input = document.getElementById('secretInput').value.trim().toUpperCase();
+  const correctCode = "WUWEI"; // ← Change ça si tu veux un autre mot
+
+  if (input === correctCode) {
+    // ✅ Code bon → fais ce que tu veux ici :
+    alert("Le code est correct ! Le Dragon s’éveille...");
+    document.getElementById('codePopup').style.display = 'none';
+    document.body.classList.remove('modal-open');
+    // Exemple : window.location.href = "fin.html";
+  } else {
+    // ❌ Code faux
+    document.getElementById('codeError').style.display = "block";
+  }
+}
   </script>
 </body>
 </html>
