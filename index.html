@@ -57,14 +57,14 @@
          display: block;
       }
 
-      @keyframes pulseYellow {
-        0%, 100% {
-          box-shadow: 0 0 6px rgba(255, 255, 0, 0.2);
-        }
+       @keyframes pulseYellow {
+         0%, 100% {
+           box-shadow: 0 0 6px rgba(255, 255, 0, 0.2);
+       }
         50% {
-          box-shadow: 0 0 18px rgba(255, 255, 0, 0.6);
-        }
-      }
+           box-shadow: 0 0 18px rgba(255, 255, 0, 0.6);
+         }
+       }
 
 
        .zone::after {
@@ -95,6 +95,7 @@
        }
 
        .courint::before {
+         opacity: 0.6;
          content: "";
          position: absolute;
          top: 50%;
@@ -127,6 +128,7 @@
       }
 
         .extmont::before {
+         opacity: 0.6;
          content: "";
          position: absolute;
          top: 50%;
