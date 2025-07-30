@@ -61,7 +61,7 @@
        }
 
 
-     .courint, .extmont {
+     .extmont, .courint {
          position: absolute;
          width: 100px;
          height: 120px;
@@ -75,29 +75,29 @@
          -webkit-tap-highlight-color: transparent;
        }
 
-     .courint {
+     .extmont {
          top: 70%;
          left: 15%;
          transform: translate(-50%,-50%);
        }
 
-     .extmont {
+     .courint {
          top: 70%;
          left: 85%;
          transform: translate(-50%,-50%);
        }
 
      @media (max-width: 768px) {
-     .extmont {
+     .courint {
          left: 87%;
        }
-     .courint {
+     .extmont {
          left: 13%;
        }
      }
        /* Flèches visibles et pulsantes */
-     .courint::before,
-     .extmont::before {
+     .exmont::before,
+     .courint::before {
          content: "";
          position: absolute;
          top: 50%;
@@ -111,19 +111,19 @@
          pointer-events: none;
        }
 
-     .courint::before {
+     .extmont::before {
          border-right: 60px solid rgba(255, 255, 0, 0.5);
        }
 
-     .extmont::before {
+     .courint::before {
          border-left: 60px solid rgba(255, 255, 0, 0.5);
        }
 
-     .courint:hover::before {
+     .extmont:hover::before {
          border-right-color: rgba(255, 255, 0, 1);
        }
 
-     .extmont:hover::before {
+     .courint:hover::before {
          border-left-color: rgba(255, 255, 0, 1);
        }
 
@@ -440,8 +440,8 @@
       <div class="imageWrapper">
         <img id="mainImage" src="https://i.imgur.com/4aha2sd.png" alt="Salle Du Dragon" />
         <div id="scrollTarget"></div>
-        <a href="#" class="zone courint"></a>
-        <a href="#" class="zone extmont"></a>
+        <a href="https://albatroswingchun.github.io/leveildudragon/" class="zone extmont"></a>
+        <a href="https://albatroswingchun.github.io/CourInterieure/" class="zone courint"></a>
         <a href="#" class="zone dragonfinal"></a>
         <a href="#" class="zone porte4"></a>
         <a href="#" class="zone porte5"></a>
