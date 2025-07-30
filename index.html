@@ -494,7 +494,7 @@
   <div class="popupContent" style="flex-direction: column; background: #111; padding: 30px; border-radius: 12px;">
     <span class="closePopup" onclick="document.getElementById('codePopup').style.display='none'; document.body.classList.remove('modal-open');">&times;</span>
     <h2 style="color: white; margin-bottom: 10px;">Inscris-ici le rituel à prononcer...</h2>
-    <input id="secretInput" type="text" placeholder="Code..." style="width: 80%; max-width: 600px; padding: 18px; font-size: 22px; border-radius: 8px; border: 2px solid #ccc; margin-bottom: 12px;background: #222; color: white; text-align: center;">
+    <input id="secretInput" type="text" placeholder="Code..." autocomplete="off" spellcheck="false" style="width: 80%; max-width: 600px; padding: 18px; font-size: 22px; border-radius: 8px; border: 2px solid #ccc; margin-bottom: 12px;background: #222; color: white; text-align: center;">
     <button onclick="checkSecretCode()" style="padding: 10px 20px; font-size: 16px; background: gold; color: black; border: none; border-radius: 6px; cursor: pointer;">Valider</button>
     <p id="codeError" style="color: red; display: none; margin-top: 10px;">Code incorrect.</p>
   </div>
