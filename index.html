@@ -94,17 +94,18 @@
   height: 23%;
 }
 
-.courint::after {
+.courint::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   width: 0;
   height: 0;
-  transform: translate(-50%, -50%);
-  border-top: 40px solid transparent;
-  border-bottom: 40px solid transparent;
-  border-right: 60px solid yellow;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-right: 80px solid yellow;
+  animation: pulseYellow 2s infinite ease-in-out;
   pointer-events: none;
 }
 
