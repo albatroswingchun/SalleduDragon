@@ -62,13 +62,6 @@
          box-shadow: none;
       }
 
-      .zone:focus, .zone:active, .zone:hover {
-         outline: none !important;
-         border: none !important;
-         background: none !important;
-         box-shadow: none !important;
-      }
-
        @keyframes pulseYellow {
          0%, 100% {
            box-shadow: 0 0 6px rgba(255, 255, 0, 0.2);
@@ -78,74 +71,75 @@
          }
        }
 
-      .courint {
-         top: 45%;
-         left: 8%;
+      .courint, .extmont {
+         position: absolute;
          width: 13%;
          height: 23%;
-         background: none !important;
-         border: none !important;
-         outline: none !important;
-         box-shadow: none !important;
+         background: none;
+         border: none;
+         outline: none;
+         box-shadow: none;
+         text-decoration: none;
+         -webkit-tap-highlight-color: transparent;
+       }
+
+       .zone:focus,
+       .zone:hover,
+       .zone:active {
+         outline: none;
+         border: none;
+         background: none;
+         box-shadow: none;
+       }
+
+       .courint {
+         top: 45%;
+         left: 8%;
+       }
+
+       .extmont {
+         top: 45%;
+         left: 78%;
+       }
+
+       /* Animation flèches */
+       .courint::before,
+       .extmont::before {
+         content: "";
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         width: 0;
+         height: 0;
+         opacity: 0.6;
+         animation: pulseYellow 2s infinite ease-in-out;
+         pointer-events: none;
+         box-shadow: none;
+         background: none;
+         z-index: 5;
        }
 
        .courint::before {
-         opacity: 0.6;
-         content: "";
-         position: absolute;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         width: 0;
-         height: 0;
          border-top: 50px solid transparent;
          border-bottom: 50px solid transparent;
          border-right: 80px solid rgba(255, 255, 0, 0.5);
-         animation: pulseYellow 2s infinite ease-in-out;
-         pointer-events: none;
-         box-shadow: none;
-         background: none;
-         z-index: 5;
        }
 
-       .courint:hover::before{
-         border-right-color: rgba(255, 255, 0, 1);
-       }
-
-        .extmont {
-          top: 45%;
-          left: 78%;
-          width: 13%;
-          height: 23%;
-          position: absolute;
-          background: none !important;
-          border: none !important;
-          outline: none !important;
-          box-shadow: none !important;
-      }
-
-        .extmont::before {
-         opacity: 0.6;
-         content: "";
-         position: absolute;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         width: 0;
-         height: 0;
+       .extmont::before {
          border-top: 50px solid transparent;
          border-bottom: 50px solid transparent;
          border-left: 80px solid rgba(255, 255, 0, 0.5);
-         animation: pulseYellow 2s infinite ease-in-out;
-         pointer-events: none;
-         box-shadow: none;
-         background: none;
-         z-index: 5;
-      }
+       }
 
-        .extmont:hover::before {
-          border-left-color: rgba(255, 255, 0, 1);
-      }
+       .courint:hover::before {
+         border-right-color: rgba(255, 255, 0, 1);
+       }
+
+       .extmont:hover::before {
+         border-left-color: rgba(255, 255, 0, 1);
+       }
+
 
         .dragonfinal {
           top: 65%;
