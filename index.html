@@ -590,22 +590,34 @@
   document.getElementById('codeError').style.display = "none";
 });
 
+    function normalize(text) {
+      return text
+        .trim()
+        .toUpperCase()
+        .replace(/’/g, "'")
+        .replace(/[éèêë]/gi, "E")
+        .replace(/[àâä]/gi, "A")
+        .replace(/[îï]/gi, "I")
+        .replace(/[ôö]/gi, "O")
+        .replace(/[ùûü]/gi, "U")
+        .replace(/[^A-Z0-9 '\.]/g, '');
+    }
+
 // Vérification du code secret
 function checkSecretCode() {
-  const input = document.getElementById('secretInput').value.trim().toUpperCase();
-  const correctCode = "Que l'équilibre des cinq éveillés unisse l'ombre et la lumière. L'heure est venue... réveille-toi Dragon"; // ← Change ça si tu veux un autre mot
+  const input = document.getElementById('secretInput').value;
+  const correctCode = "Que l'équilibre des cinq éveillés unisse l'ombre et la lumière. L'heure est venue... réveille-toi Dragon";
 
-  if (input === correctCode) {
-    // ✅ Code bon → fais ce que tu veux ici :
+  if (normalize(input) === normalize(correctCode)) {
     alert("Le code est correct ! Le Dragon s’éveille...");
     document.getElementById('codePopup').style.display = 'none';
     document.body.classList.remove('modal-open');
     // Exemple : window.location.href = "fin.html";
   } else {
-    // ❌ Code faux
     document.getElementById('codeError').style.display = "block";
   }
 }
+
   </script>
 </body>
 </html>
