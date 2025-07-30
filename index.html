@@ -458,7 +458,7 @@
   <div class="popupContent" style="flex-direction: column; background: #111; padding: 30px; border-radius: 12px;">
     <span class="closePopup" onclick="document.getElementById('codePopup').style.display='none'; document.body.classList.remove('modal-open');">&times;</span>
     <h2 style="color: white; margin-bottom: 10px;">Inscris le rituel à prononcer pour réveiller le Dragon...</h2>
-    <input id="secretInput" type="text" placeholder="Code..." style="padding: 10px; font-size: 16px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 10px;">
+    <input id="secretInput" type="text" placeholder="Code..." style="width: 80%; max-width: 600px; padding: 18px; font-size: 22px; border-radius: 8px; border: 2px solid #ccc; margin-bottom: 12px;background: #222; color: white; text-align: center;">
     <button onclick="checkSecretCode()" style="padding: 10px 20px; font-size: 16px; background: gold; color: black; border: none; border-radius: 6px; cursor: pointer;">Valider</button>
     <p id="codeError" style="color: red; display: none; margin-top: 10px;">Code incorrect.</p>
   </div>
@@ -583,7 +583,7 @@
     });
 
     // Ouverture de la popup du Dragon
-document.querySelector('.dragonfinal').addEventListener('click', () => {
+  document.querySelector('.dragonfinal').addEventListener('click', () => {
   document.getElementById('codePopup').style.display = 'flex';
   document.body.classList.add('modal-open');
   document.getElementById('secretInput').value = "";
