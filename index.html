@@ -645,9 +645,9 @@ function checkSecretCode() {
   const correctCode = "Que l'équilibre des cinq éveillés unisse l'ombre et la lumière. L'heure est venue... réveille-toi Dragon";
 
   if (normalize(input) === normalize(correctCode)) {
-    playDragonReveal("Le code est correct ! Le Dragon s’éveille...");
     document.getElementById('codePopup').style.display = 'none';
     document.body.classList.remove('modal-open');
+    playDragonReveal();
     // Exemple : window.location.href = "fin.html";
   } else {
     document.getElementById('codeError').style.display = "block";
