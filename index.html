@@ -98,26 +98,27 @@
        /* Flèches visibles et pulsantes */
      .extmont::before,
      .courint::before {
-         content: "";
-         position: absolute;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
-         width: 0;
-         height: 0;
-         border-top: 50px solid transparent;
-         border-bottom: 50px solid transparent;
-         animation: pulseYellow 2s infinite ease-in-out;
-         pointer-events: none;
-       }
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 0;
+      height: 0;
+      border-top: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+      animation: pulseYellow 2s infinite ease-in-out;
+      pointer-events: none;
+  }
 
-     .extmont::before {
-         border-right: 60px solid rgba(255, 255, 0, 0.5);
-       }
+  .extmont::before {
+      border-right: 60px solid rgba(255, 255, 0, 0.5);
+  }
 
-     .courint::before {
-         border-left: 60px solid rgba(255, 255, 0, 0.5);
-       }
+  .courint::before {
+      border-left: 60px solid rgba(255, 255, 0, 0.5);
+  }
+
 
      .extmont:hover::before {
          border-right-color: rgba(255, 255, 0, 1);
