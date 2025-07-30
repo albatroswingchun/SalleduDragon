@@ -379,6 +379,36 @@
           font-weight: bold;
       }
 
+    #awakeningSequence {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      flex-direction: column;
+    }
+
+    #awakeningSequence img {
+      position: absolute;
+      max-width: 60%;
+      opacity: 0;
+      transition: transform 3s ease, opacity 2s ease;
+    }
+
+    #dragonStep1 {
+      z-index: 1;
+    }
+
+    #dragonStep2 {
+      z-index: 2;
+      transform: scale(1);
+    }
+
       @media screen and (orientation: portrait) {
           .container-portrait {
               display: flex;
@@ -399,6 +429,12 @@
 
   <div class="container-landscape">
     <div id="fullscreenBtn">Plein écran</div>
+
+    <!-- Apparition progressive du Dragon -->
+<div id="awakeningSequence">
+  <img id="dragonStep1" src="https://i.imgur.com/IPrCed1.png" alt="Éveil du Dragon">
+  <img id="dragonStep2" src="https://i.imgur.com/ERxToqK.png" alt="Dragon Révélé">
+</div>
 
     <div id="container">
       <div class="imageWrapper">
@@ -609,13 +645,39 @@ function checkSecretCode() {
   const correctCode = "Que l'équilibre des cinq éveillés unisse l'ombre et la lumière. L'heure est venue... réveille-toi Dragon";
 
   if (normalize(input) === normalize(correctCode)) {
-    alert("Le code est correct ! Le Dragon s’éveille...");
+    playDragonReveal("Le code est correct ! Le Dragon s’éveille...");
     document.getElementById('codePopup').style.display = 'none';
     document.body.classList.remove('modal-open');
     // Exemple : window.location.href = "fin.html";
   } else {
     document.getElementById('codeError').style.display = "block";
   }
+}
+
+    function playDragonReveal() {
+  const sequence = document.getElementById('awakeningSequence');
+  const img1 = document.getElementById('dragonStep1');
+  const img2 = document.getElementById('dragonStep2');
+
+  sequence.style.display = 'flex';
+
+  // Première image : zoom et apparition
+  img1.style.opacity = '1';
+  img1.style.transform = 'scale(0.5)';
+  setTimeout(() => {
+    img1.style.transform = 'scale(1.3)';
+  }, 50);
+
+  // Puis deuxième image : fixe, remplace l’autre
+  setTimeout(() => {
+    img1.style.opacity = '0';
+    img2.style.opacity = '1';
+  }, 3500);
+
+  // Disparition de la scène après quelques secondes
+  setTimeout(() => {
+    sequence.style.display = 'none';
+  }, 6000);
 }
 
   </script>
