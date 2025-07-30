@@ -78,15 +78,23 @@
      .courint {
          top: 60%;
          left: 8%;
-         transform: translateY(-50%);
+         transform: translate(50%,-50%);
        }
 
      .extmont {
          top: 60%;
          left: 92%;
-         transform: translateY(-50%);
+         transform: translate(50%,-50%);
        }
 
+     @media (max-width: 768px) {
+     .extmont {
+         left: 87%;
+       }
+     .courint {
+         left: 13%;
+       }
+     }
        /* Flèches visibles et pulsantes */
      .courint::before,
      .extmont::before {
