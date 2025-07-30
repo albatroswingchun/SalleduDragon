@@ -116,7 +116,22 @@
           height: 23%;
       }
 
-      .dragonfinal {
+    .extmont::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 80px solid yellow;
+  animation: pulseYellow 2s infinite ease-in-out;
+  pointer-events: none;
+}
+
+        .dragonfinal {
           top: 65%;
           left: 44%;
           width: 12%;
