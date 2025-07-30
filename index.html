@@ -660,29 +660,40 @@ function checkSecretCode() {
       const img2 = document.getElementById('dragonStep2');
 
       // Réinitialisation des styles
+      img1.style.transition = 'none';
       img1.style.opacity = '0';
       img1.style.transform = 'scale(0.5)';
+      img2.style.transition = 'none';
       img2.style.opacity = '0';
 
+      // Forcer le reflow pour garantir que les changements sont pris en compte
+      void img1.offsetWidth;
+
+      // Rétablir les transitions
+      img1.style.transition = 'transform 3s ease, opacity 2s ease';
+      img2.style.transition = 'transform 3s ease, opacity 2s ease';
+    
+      // Affichage du conteneur
       sequence.style.display = 'flex';
 
-     // Première image : apparition et zoom
-     setTimeout(() => {
-     img1.style.opacity = '1';
-     img1.style.transform = 'scale(1.3)';
-    }, 50);
+      // Lancer l’apparition et le zoom de la première image
+      setTimeout(() => {
+        img1.style.opacity = '1';
+        img1.style.transform = 'scale(1.3)';
+      }, 50);
 
-    // Transition vers la 2e image
-    setTimeout(() => {
-    img1.style.opacity = '0';
-    img2.style.opacity = '1';
-  }, 3500);
+      // Transition vers la deuxième image
+      setTimeout(() => {
+        img1.style.opacity = '0';
+        img2.style.opacity = '1';
+      }, 3500);
 
-    // Disparition de la scène
-    setTimeout(() => {
-    sequence.style.display = 'none';
-  }, 6000);
-}
+      // Masquer la scène à la fin
+      setTimeout(() => {
+        sequence.style.display = 'none';
+      }, 6000);
+    }
+
 
   </script>
 </body>
