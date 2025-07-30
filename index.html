@@ -52,22 +52,20 @@
           display: block;
       }
 
-   @keyframes pulseBorder {
-  0%, 100% {
-    opacity: 0.5;
-    box-shadow: 0 0 4px white;
-  }
-  50% {
-    opacity: 1;
-    box-shadow: 0 0 16px white;
-  }
-}
-
-    .zone {
+      .zone {
   position: absolute;
   display: block;
   width: 100%;
   height: 100%;
+}
+
+    @keyframes pulseYellow {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(255, 255, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(255, 255, 0, 0.6);
+  }
 }
 
 
@@ -78,12 +76,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid white;
   border-radius: 8px;
   box-sizing: border-box;
   pointer-events: none;
-  animation: pulseBorder 2s infinite ease-in-out;
-  opacity: 0.5;
+  animation: pulseYellow 2s infinite ease-in-out;
+  background-color: transparent;
 }
 
 
