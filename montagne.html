@@ -540,16 +540,14 @@ fullscreenBtn.addEventListener('click', () => {
     <script src="/leveildudragon/js/blocnote.js"></script>
 
   <!-- Restauration du plein écran si activé depuis index.html -->
-  <script>
+   <script>
+      <script>
     document.addEventListener("DOMContentLoaded", () => {
       const wantsFullscreen = localStorage.getItem('forceFullscreen') === 'true';
 
       if (wantsFullscreen && !document.fullscreenElement) {
-        const trigger = document.createElement("button");
-        trigger.style.display = "none";
-        document.body.appendChild(trigger);
-
-        trigger.addEventListener("click", () => {
+        // On attend un vrai clic utilisateur (pour éviter le blocage navigateur)
+        document.addEventListener('click', function enableFullscreenOnce() {
           document.documentElement.requestFullscreen().catch(err => {
             console.warn("Échec du plein écran :", err);
           });
