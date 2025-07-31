@@ -1,16 +1,32 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const note = document.getElementById("bloc-note");
+document.addEventListener('DOMContentLoaded', () => {
+  const noteBtn = document.getElementById('noteBtn');
+  const notePopup = document.getElementById('notePopup');
+  const noteArea = document.getElementById('noteArea');
 
-  if (!note) return;
-
-  // Charger la note enregistrée depuis le localStorage
-  const savedNote = localStorage.getItem("note_partagee");
-  if (savedNote) {
-    note.value = savedNote;
+  if (!noteBtn || !notePopup || !noteArea) {
+    console.warn('Bloc-note : éléments manquants');
+    return;
   }
 
-  // Mettre à jour le localStorage à chaque modification du bloc-note
-  note.addEventListener("input", function () {
-    localStorage.setItem("note_partagee", note.value);
+  // Charger la note sauvegardée
+  noteArea.value = localStorage.getItem('blocNote') || "";
+
+  // Sauvegarde en temps réel
+  noteArea.addEventListener('input', () => {
+    localStorage.setItem('blocNote', noteArea.value);
+  });
+
+  // Ouverture
+  noteBtn.addEventListener('click', () => {
+    notePopup.style.display = 'flex';
+    document.body.classList.add('modal-open');
+  });
+
+  // Fermeture en cliquant à l'extérieur
+  notePopup.addEventListener('click', (e) => {
+    if (e.target === notePopup) {
+      notePopup.style.display = 'none';
+      document.body.classList.remove('modal-open');
+    }
   });
 });
