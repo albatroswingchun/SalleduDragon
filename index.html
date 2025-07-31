@@ -630,15 +630,23 @@
       }
     });
 
-    window.addEventListener('load', () => {
+   <script>
+  // Durée totale souhaitée AVANT que le fondu commence (ex : 3000 = 3 secondes)
+  const delayBeforeFade = 3000;
+
   setTimeout(() => {
     const overlay = document.getElementById('loadingOverlay');
-    overlay.style.opacity = 0;
-    setTimeout(() => {
-      overlay.remove();
-    }, 1000); // Laisse le temps au fondu de s'effectuer
-  }, 4000);
-});
+    if (overlay) {
+      overlay.style.opacity = 0;
+
+      // Attend la fin du fondu pour retirer l’élément
+      setTimeout(() => {
+        overlay.remove();
+      }, 1000); // Doit correspondre à la durée de `transition: opacity`
+    }
+  }, delayBeforeFade);
+</script>
+
 
     // Bloc-note
     const noteBtn = document.getElementById('noteBtn');
