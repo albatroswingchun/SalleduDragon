@@ -497,10 +497,8 @@
           document.documentElement.requestFullscreen().catch(err => {
             console.warn("Échec du plein écran :", err);
           });
+           document.removeEventListener('click', enableFullscreenOnce);
         });
-
-        trigger.click();
-        trigger.remove();
       }
     });
   </script>
