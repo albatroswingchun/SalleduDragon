@@ -537,5 +537,27 @@
 
     <script src="/leveildudragon/js/blocnote.js"></script>
 
+  <!-- Restauration du plein écran si activé depuis index.html -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const wantsFullscreen = localStorage.getItem('forceFullscreen') === 'true';
+
+      if (wantsFullscreen && !document.fullscreenElement) {
+        const trigger = document.createElement("button");
+        trigger.style.display = "none";
+        document.body.appendChild(trigger);
+
+        trigger.addEventListener("click", () => {
+          document.documentElement.requestFullscreen().catch(err => {
+            console.warn("Échec du plein écran :", err);
+          });
+        });
+
+        trigger.click();
+        trigger.remove();
+      }
+    });
+  </script>
+
   </body>
 </html>
