@@ -468,14 +468,16 @@
 
     const fullscreenBtn = document.getElementById('fullscreenBtn');
     fullscreenBtn.addEventListener('click', () => {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(err => {
-          alert(`Erreur de passage en plein écran : ${err.message}`);
-        });
-      } else {
-        document.exitFullscreen();
-      }
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(err => {
+      alert(`Erreur de passage en plein écran : ${err.message}`);
     });
+    localStorage.setItem('forceFullscreen', 'true'); // ✅ Mémorisation
+  } else {
+    document.exitFullscreen();
+    localStorage.setItem('forceFullscreen', 'false'); // ✅ Nettoyage
+  }
+});
 
     </script>
   
