@@ -109,15 +109,15 @@
       border-bottom: 50px solid transparent;
       animation: pulseYellow 2s infinite ease-in-out;
       pointer-events: none;
-  }
+    }
 
-  .extmont::before {
-      border-right: 60px solid rgba(255, 255, 0, 0.5);
-  }
+    .extmont::before {
+        border-right: 60px solid rgba(255, 255, 0, 0.5);
+    }
 
-  .courint::before {
-      border-left: 60px solid rgba(255, 255, 0, 0.5);
-  }
+    .courint::before {
+        border-left: 60px solid rgba(255, 255, 0, 0.5);
+    }
 
 
      .extmont:hover::before {
@@ -630,22 +630,19 @@
       }
     });
 
-   <script>
-  // Durée totale souhaitée AVANT que le fondu commence (ex : 3000 = 3 secondes)
-  const delayBeforeFade = 3000;
+   // Intro "Vous entrez dans le Temple..."
+    setTimeout(() => {
+      const overlay = document.getElementById('loadingOverlay');
+      if (overlay) {
+        overlay.style.opacity = 0;
 
-  setTimeout(() => {
-    const overlay = document.getElementById('loadingOverlay');
-    if (overlay) {
-      overlay.style.opacity = 0;
+    // Attend la fin de la transition avant de retirer le DOM
+        setTimeout(() => {
+          overlay.remove();
+        }, 1000); // Doit correspondre à transition: opacity 1s
+      }
+    }, 3000); // Délai avant début du fondu
 
-      // Attend la fin du fondu pour retirer l’élément
-      setTimeout(() => {
-        overlay.remove();
-      }, 1000); // Doit correspondre à la durée de `transition: opacity`
-    }
-  }, delayBeforeFade);
-</script>
 
 
     // Bloc-note
