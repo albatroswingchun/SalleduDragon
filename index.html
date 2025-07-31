@@ -410,6 +410,29 @@
       transform: scale(1);
     }
 
+    #loadingOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 99999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+
+    #loadingOverlay h1 {
+      color: white;
+      font-size: 2.2em;
+      font-family: Georgia, serif;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
       @media screen and (orientation: portrait) {
           .container-portrait {
               display: flex;
@@ -430,6 +453,10 @@
 
   <div class="container-landscape">
     <div id="fullscreenBtn">Plein écran</div>
+
+    <div id="loadingOverlay">
+  <h1>Vous entrez dans le Temple...</h1>
+</div>
 
     <!-- Apparition progressive du Dragon -->
 <div id="awakeningSequence">
@@ -602,6 +629,16 @@
         document.exitFullscreen();
       }
     });
+
+    window.addEventListener('load', () => {
+  setTimeout(() => {
+    const overlay = document.getElementById('loadingOverlay');
+    overlay.style.opacity = 0;
+    setTimeout(() => {
+      overlay.remove();
+    }, 1000); // Laisse le temps au fondu de s'effectuer
+  }, 5000);
+});
 
     // Bloc-note
     const noteBtn = document.getElementById('noteBtn');
