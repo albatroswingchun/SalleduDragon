@@ -643,24 +643,6 @@
       }
     }, 3000); // Délai avant début du fondu
 
-
-
-    // Bloc-note
-    const noteBtn = document.getElementById('noteBtn');
-    const notePopup = document.getElementById('notePopup');
-    const noteArea = document.getElementById('noteArea');
-
-    noteArea.value = localStorage.getItem('blocNote') || "";
-
-    noteArea.addEventListener('input', () => {
-      localStorage.setItem('blocNote', noteArea.value);
-    });
-
-    noteBtn.addEventListener('click', () => {
-      notePopup.style.display = 'flex';
-      document.body.classList.add('modal-open');
-    });
-
     // Ouverture de la popup du Dragon
   document.querySelector('.dragonfinal').addEventListener('click', () => {
   document.getElementById('codePopup').style.display = 'flex';
@@ -737,6 +719,9 @@ function checkSecretCode() {
       }, 8000);
     }
 
-  </script>
-</body>
+    </script>
+  
+    <script src="js/blocnote.js"></script>
+
+  </body>
 </html>
