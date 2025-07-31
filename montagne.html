@@ -52,6 +52,51 @@
           display: block;
       }
 
+    @keyframes pulseYellow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    border-top-color: rgba(255, 255, 0, 0.5);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    border-top-color: rgba(255, 255, 0, 1);
+  }
+}
+
+
+    .retourIndex {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  z-index: 10;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.retourIndex::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 60px solid rgba(255, 255, 0, 0.5);
+  animation: pulseYellow 2s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.retourIndex:hover::before {
+  border-top-color: rgba(255, 255, 0, 1);
+}
+
+
       .zone {
           position: absolute;
           background-color: transparent;
@@ -332,6 +377,8 @@
         <a href="#" class="zone porte3"></a>
         <a href="#" class="zone porte4"></a>
         <a href="#" class="zone porte5"></a>
+
+        <a href="/leveildudragon/index.html" class="zone retourIndex"></a>
       </div>
     </div>
 
