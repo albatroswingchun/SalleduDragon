@@ -54,18 +54,29 @@
 
    .retourIndex {
   position: absolute;
-  bottom: 5%;
+  top: 88%;
   left: 50%;
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, -50%);
   width: 100px;
-  height: 100px;
-  z-index: 10;
-  background: transparent;
+  height: 120px;
+  background: none;
   border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
   cursor: pointer;
+  z-index: 10;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* La flèche jaune pulsante */
+/* Variante responsive si nécessaire */
+@media (max-width: 768px) {
+  .retourIndex {
+    top: 90%;
+  }
+}
+
+/* Flèche vers le bas */
 .retourIndex::before {
   content: "";
   position: absolute;
@@ -74,28 +85,23 @@
   transform: translate(-50%, -50%);
   width: 0;
   height: 0;
-  border-left: 40px solid transparent;
-  border-right: 40px solid transparent;
-  border-top: 50px solid rgba(255, 255, 0, 0.5); /* jaune 50% */
-  box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 60px solid rgba(255, 255, 0, 0.5);
   animation: pulseYellow 2s infinite ease-in-out;
-  pointer-events: none; /* le clic reste sur le parent */
+  pointer-events: none;
 }
 
 .retourIndex:hover::before {
-  border-top-color: rgba(255, 255, 0, 1); /* jaune 100% instantané */
-  box-shadow: 0 0 25px rgba(255, 255, 0, 0.6);
+  border-top-color: rgba(255, 255, 0, 1);
 }
 
-/* Animation de la lumière pulsée */
-@keyframes pulseYellow {
+    @keyframes pulseYellow {
   0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
-    box-shadow: 0 0 15px rgba(255, 255, 0, 0.3);
+    filter: drop-shadow(0 0 4px rgba(255, 255, 0, 0.3));
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.1);
-    box-shadow: 0 0 25px rgba(255, 255, 0, 0.6);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 0, 0.8));
   }
 }
    
@@ -380,7 +386,8 @@
         <a href="#" class="zone porte4"></a>
         <a href="#" class="zone porte5"></a>
 
-        <a href="/leveildudragon/index.html" class="retourIndex"></a>
+        <a href="https://albatroswingchun.github.io/leveildudragon/index.html" class="zone retourIndex"></a>
+
       </div>
     </div>
 
