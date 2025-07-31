@@ -478,21 +478,9 @@
       }
     });
 
-    // Bloc-note
-    const noteBtn = document.getElementById('noteBtn');
-    const notePopup = document.getElementById('notePopup');
-    const noteArea = document.getElementById('noteArea');
+    </script>
 
-    noteArea.value = localStorage.getItem('blocNote') || "";
+    <script src="js/blocnote.js"></script>
 
-    noteArea.addEventListener('input', () => {
-      localStorage.setItem('blocNote', noteArea.value);
-    });
-
-    noteBtn.addEventListener('click', () => {
-      notePopup.style.display = 'flex';
-      document.body.classList.add('modal-open');
-    });
-  </script>
-</body>
+  </body>
 </html>
